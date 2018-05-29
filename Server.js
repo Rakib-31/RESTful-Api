@@ -2,7 +2,7 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 2000,
   mongoose = require('mongoose'),
-  Task = require('./model/model'), //created model loading here
+  Task = require('./model/membersModel'), //created model loading here
   bodyParser = require('body-parser');
   
   
@@ -17,6 +17,11 @@ app.use(bodyParser.json());
 
 var routes = require('./routes/routes'); //importing route
 routes(app); //register the route
+
+app.use(function(err,req,res,next){
+  console.log(err);
+  res.status(404).send({error: err.message});
+});
 
 
 app.listen(port);
