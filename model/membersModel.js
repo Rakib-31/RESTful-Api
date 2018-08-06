@@ -6,6 +6,14 @@ var memberSchema = new Schema({
         type: String,
         required: [true,'Name field is required']
     },
+    university:{
+        type: String,
+        required: [true,'Department field is required']
+    },
+    department:{
+      type: String,
+      required: [true,'Department field is required']
+    },
     Created_date: {
       type: Date,
       default: Date.now
@@ -83,3 +91,24 @@ var memberSchema = new Schema({
   });
 
   module.exports = mongoose.model('faruqes', faruqeSchema);
+
+  //creating shamim schema
+  var shamimSchema = new Schema({
+    research:{
+        type: String,
+        required: [true,'Research field is required']
+    },
+    Created_date: {
+      type: Date,
+      default: Date.now
+    },
+    status: {
+      type: [{
+        type: String,
+        enum: ['pending', 'ongoing', 'completed']
+      }],
+      default: ['pending']
+    }  
+  });
+
+  module.exports = mongoose.model('shamims', shamimSchema);

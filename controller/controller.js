@@ -4,6 +4,7 @@ Members = mongoose.model('members');
 Sangeeta = mongoose.model('sangeetas');
 Utpal = mongoose.model('utpals');
 Faruqe = mongoose.model('faruqes');
+Shamim = mongoose.model('shamims');
 
 exports.list_all_tasks = function(req, res, next) {
   Members.find({}).then(function(member) {
@@ -18,8 +19,8 @@ exports.create_a_task = function(req, res, next) {
 };
 
 exports.read_a_task = function(req, res, next) {
-  members.findById(req.params.memberId).then(function(member) {
-    res.json(member);
+  Members.findById(req.params.memberId).then(function(member) {
+    res.send(member);
   }).catch(next);
 };
 
@@ -82,7 +83,7 @@ exports.create_a_utpal = function(req, res, next) {
 };
 
 exports.read_a_utpal = function(req, res, next) {
-  Utpal.findById(req.params.id).then(function(sangeeta) {
+  Utpal.findById(req.params.id).then(function(utpal) {
     res.json(utpal);
   }).catch(next);
 };
@@ -130,3 +131,36 @@ exports.delete_a_faruqe = function(req, res, next) {
       res.json(faruqe);
     }).catch(next);
   };
+
+  //controlling all about Shamim Ahmed info
+
+exports.list_all_shamim = function(req, res, next) {
+  Shamim.find({}).then(function(shamim) {
+    res.send(shamim);
+  }).catch(next);
+};
+
+exports.create_a_shamim = function(req, res, next) {
+  Shamim.create(req.body).then(function(shamim){
+    res.send(shamim);
+  }).catch(next);
+};
+
+exports.read_a_shamim = function(req, res, next) {
+  Shamim.findById(req.params.id).then(function(shamim) {
+    res.json(shamim);
+  }).catch(next);
+};
+
+exports.update_a_shamim = function(req, res, next) {
+  Shamim.findOneAndUpdate({_id: req.params.id}, req.body).then(function(shamim) {
+    res.send(shamim);
+  }).catch(next);
+};
+
+exports.delete_a_shamim = function(req, res, next) {
+  Shamim.findOneAndRemove({ _id: req.params.id}).then(function(shamim) {
+      res.json(shamim);
+    }).catch(next);
+  };
+
