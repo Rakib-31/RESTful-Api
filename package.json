@@ -1,0 +1,30 @@
+{
+  "name": "research_api",
+  "version": "1.0.0",
+  "description": "Information About University",
+  "main": "server.js",
+  "scripts": {
+    "test": "T"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rajib-102/restFullAPI.git"
+  },
+  "keywords": [
+    "A"
+  ],
+  "author": "Rajibul Islam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rajib-102/restFullAPI/issues"
+  },
+  "homepage": "https://github.com/Rajib-102/restFullAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
